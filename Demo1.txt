@@ -1,0 +1,976 @@
+Microsoft Windows [Version 10.0.18363.1316]
+                                                                             C:\Users\balajpc\IdeaProjects\IJ-lnd-ms-edr>cls
+
+C:\Users\balajpc\IdeaProjects\IJ-lnd-ms-edr>git status
+On branch feature/liquibase-tctest
+Your branch is up to date with 'origin/feature/liquibase-tctest'.
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   src/main/resources/liquibase/2021/014-LND-2021-add-newcolumn3.xml
+        new file:   src/main/resources/liquibase/2021/014-LND-2021-add-newcolumn4.xml
+        new file:   src/main/resources/liquibase/2021/015-LND-2021-add-newcolumn5.xml
+        new file:   src/main/resources/liquibase/2021/016-LND-2021-add-newcolumn6.xml
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   src/main/resources/liquibase/2021/013-LND-2021-add-customer-address-column.xml
+        modified:   src/main/resources/liquibase/2021/014-LND-2021-add-newcolumn3.xml
+        modified:   src/main/resources/liquibase/2021/014-LND-2021-add-newcolumn4.xml
+        modified:   src/main/resources/liquibase/2021/015-LND-2021-add-newcolumn5.xml
+        modified:   src/main/resources/liquibase/master-changelog.xml
+
+
+C:\Users\balajpc\IdeaProjects\IJ-lnd-ms-edr>git branch
+* feature/liquibase-tctest
+  master
+
+C:\Users\balajpc\IdeaProjects\IJ-lnd-ms-edr>git add .
+
+C:\Users\balajpc\IdeaProjects\IJ-lnd-ms-edr>git commit -m "new changesets added"
+[feature/liquibase-tctest bce6343] new changesets added
+ 6 files changed, 43 insertions(+), 3 deletions(-)
+ create mode 100644 src/main/resources/liquibase/2021/014-LND-2021-add-newcolumn3.xml
+ create mode 100644 src/main/resources/liquibase/2021/014-LND-2021-add-newcolumn4.xml
+ create mode 100644 src/main/resources/liquibase/2021/015-LND-2021-add-newcolumn5.xml
+ create mode 100644 src/main/resources/liquibase/2021/016-LND-2021-add-newcolumn6.xml
+
+C:\Users\balajpc\IdeaProjects\IJ-lnd-ms-edr>git push
+Password for 'https://balajpc@stash.dts.fm.rbsgrp.net':
+Enumerating objects: 20, done.
+Counting objects: 100% (20/20), done.
+Delta compression using up to 2 threads
+Compressing objects: 100% (12/12), done.
+Writing objects: 100% (12/12), 1.12 KiB | 126.00 KiB/s, done.
+Total 12 (delta 9), reused 0 (delta 0), pack-reused 0
+remote:
+remote: Create pull request for feature/liquibase-tctest:
+remote:   https://stash.dts.fm.rbsgrp.net/projects/LENDING/repos/lnd-ms-edr/compare/commits?sourceBranch=refs/heads/feature/liquibase-tcte
+st
+remote:
+To https://stash.dts.fm.rbsgrp.net/scm/lending/lnd-ms-edr.git
+   cbd9e0a..bce6343  feature/liquibase-tctest -> feature/liquibase-tctest
+
+
+C:\Users\balajpc\IdeaProjects\IJ-lnd-ms-edr>mvn -Pliquibase-sync,liquibase-dev -Dliquibase.username=LND_APP_OWNER -Dliquibase.password=49G
+a9cj1
+[INFO] Scanning for projects...
+[WARNING]
+[WARNING] Some problems were encountered while building the effective model for com.rbs.agilemarkets.digital-platform.lending:lnd-ms-edr:j
+ar:0.0.5-SNAPSHOT
+[WARNING] 'dependencies.dependency.version' for org.junit.jupiter:junit-jupiter:jar is either LATEST or RELEASE (both of them are being de
+precated) @ line 208, column 22
+[WARNING]
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING]
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING]
+[INFO]
+[INFO] ------< com.rbs.agilemarkets.digital-platform.lending:lnd-ms-edr >------
+[INFO] Building lnd-ms-edr 0.0.5-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- liquibase-maven-plugin:3.10.0:changelogSync (default-cli) @ lnd-ms-edr ---
+[INFO] ------------------------------------------------------------------------
+[INFO] Parsing Liquibase Properties File
+[INFO]   File: C:\Users\balajpc\IdeaProjects\IJ-lnd-ms-edr/src/main/resources/liquibase/liquibase-dev.properties
+[INFO]   'parameter.columnSize' in properties file is not being used by this task.
+[INFO] ------------------------------------------------------------------------
+[INFO]
+[INFO]
+[INFO] Liquibase Community 3.10.0 by Datical
+[INFO] Starting Liquibase at Wed, 24 Feb 2021 13:16:49 GMT (version 3.10.0 #10 built at Thu Jun 11 09:47:49 UTC 2020)
+[INFO] Executing with the 'jdbc' executor
+[INFO] ALTER SESSION SET CURRENT_SCHEMA=LND_APP_OWNER
+[INFO] Parsing Liquibase Properties File C:\Users\balajpc\IdeaProjects\IJ-lnd-ms-edr/src/main/resources/liquibase/liquibase-dev.properties
+ for changeLog parameters
+[INFO] Executing on Database: jdbc:oracle:thin:@vstblsd01d.server.rbsgrp.mde:1535:DOGBDWH1
+[INFO] Executing with the 'jdbc' executor
+[INFO] SELECT COUNT(*) FROM LND_APP_OWNER.LND_EDR_DATABASECHANGELOGLOCK
+[INFO] Executing with the 'jdbc' executor
+[INFO] SELECT COUNT(*) FROM LND_APP_OWNER.LND_EDR_DATABASECHANGELOGLOCK
+[INFO] Executing with the 'jdbc' executor
+[INFO] SELECT LOCKED FROM LND_APP_OWNER.LND_EDR_DATABASECHANGELOGLOCK WHERE ID=1 FOR UPDATE
+[INFO] Executing with the 'jdbc' executor
+[INFO] Successfully acquired change log lock
+[INFO] Executing with the 'jdbc' executor
+[INFO] SELECT MD5SUM FROM LND_APP_OWNER.LND_EDR_DATABASECHANGELOG WHERE MD5SUM IS NOT NULL AND ROWNUM=1
+[INFO] Executing with the 'jdbc' executor
+[INFO] SELECT COUNT(*) FROM LND_APP_OWNER.LND_EDR_DATABASECHANGELOG
+[INFO] Reading from LND_APP_OWNER.LND_EDR_DATABASECHANGELOG
+[INFO] Executing with the 'jdbc' executor
+[INFO] SELECT * FROM LND_APP_OWNER.LND_EDR_DATABASECHANGELOG ORDER BY DATEEXECUTED ASC, ORDEREXECUTED ASC
+[INFO] Executing with the 'jdbc' executor
+[INFO] Successfully released change log lock
+[INFO] ------------------------------------------------------------------------
+[INFO]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 11.971 s
+[INFO] Finished at: 2021-02-24T13:16:54Z
+[INFO] ------------------------------------------------------------------------
+
+C:\Users\balajpc\IdeaProjects\IJ-lnd-ms-edr>mvn -Pliquibase-generate,liquibase-dev -Dliquibase.username=LND_APP_OWNER -Dliquibase.password
+=49Ga9cj1
+[INFO] Scanning for projects...
+[WARNING]
+[WARNING] Some problems were encountered while building the effective model for com.rbs.agilemarkets.digital-platform.lending:lnd-ms-edr:j
+ar:0.0.5-SNAPSHOT
+[WARNING] 'dependencies.dependency.version' for org.junit.jupiter:junit-jupiter:jar is either LATEST or RELEASE (both of them are being de
+precated) @ line 208, column 22
+[WARNING]
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING]
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING]
+[INFO]
+[INFO] ------< com.rbs.agilemarkets.digital-platform.lending:lnd-ms-edr >------
+[INFO] Building lnd-ms-edr 0.0.5-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- liquibase-maven-plugin:3.10.0:generateChangeLog (default-cli) @ lnd-ms-edr ---
+[INFO] ------------------------------------------------------------------------
+[INFO] Parsing Liquibase Properties File
+[INFO]   File: C:\Users\balajpc\IdeaProjects\IJ-lnd-ms-edr/src/main/resources/liquibase/liquibase-dev.properties
+[INFO]   'parameter.columnSize' in properties file is not being used by this task.
+[INFO] ------------------------------------------------------------------------
+[INFO]
+[INFO]
+[INFO] Liquibase Community 3.10.0 by Datical
+[INFO] Starting Liquibase at Wed, 24 Feb 2021 13:18:36 GMT (version 3.10.0 #10 built at Thu Jun 11 09:47:49 UTC 2020)
+[INFO] Executing with the 'jdbc' executor
+[INFO] ALTER SESSION SET CURRENT_SCHEMA=LND_APP_OWNER
+[INFO] Parsing Liquibase Properties File C:\Users\balajpc\IdeaProjects\IJ-lnd-ms-edr/src/main/resources/liquibase/liquibase-dev.properties
+ for changeLog parameters
+[INFO] Executing on Database: jdbc:oracle:thin:@vstblsd01d.server.rbsgrp.mde:1535:DOGBDWH1
+[INFO] Generating Change Log from database LND_APP_OWNER @ jdbc:oracle:thin:@vstblsd01d.server.rbsgrp.mde:1535:DOGBDWH1 (Default Schema: L
+ND_APP_OWNER)
+[INFO] Executing with the 'jdbc' executor
+[INFO] SELECT sequence_name,
+CASE WHEN increment_by > 0
+     THEN CASE WHEN min_value=1 THEN NULL ELSE min_value END
+     ELSE CASE WHEN min_value=(-999999999999999999999999999) THEN NULL else min_value END
+END AS min_value,
+CASE WHEN increment_by > 0
+     THEN CASE WHEN max_value=999999999999999999999999999 THEN NULL ELSE max_value END
+     ELSE CASE WHEN max_value=last_number THEN NULL else max_value END
+END  AS max_value,
+CASE WHEN increment_by = 1 THEN NULL ELSE increment_by END AS increment_by,
+CASE WHEN cycle_flag = 'N' THEN NULL ELSE cycle_flag END AS will_cycle,
+CASE WHEN order_flag = 'N' THEN NULL ELSE order_flag END AS is_ordered,
+LAST_NUMBER as START_VALUE,
+CASE WHEN cache_size = 20 THEN NULL ELSE cache_size END AS cache_size
+FROM ALL_SEQUENCES WHERE SEQUENCE_OWNER = 'LND_APP_OWNER'
+[INFO] Executing with the 'jdbc' executor
+[INFO] select ucc.owner as constraint_container, ucc.constraint_name as constraint_name, ucc.column_name, f.validated as constraint_valida
+te from all_cons_columns ucc INNER JOIN all_constraints f ON ucc.owner = f.owner AND ucc.constraint_name = f.constraint_name where ucc.con
+straint_name='LOOKUP_REFDATA_UQ1' and ucc.owner='LND_APP_OWNER' and ucc.table_name not like 'BIN$%' order by ucc.position
+[INFO] Executing with the 'jdbc' executor
+[INFO] select ucc.owner as constraint_container, ucc.constraint_name as constraint_name, ucc.column_name, f.validated as constraint_valida
+te from all_cons_columns ucc INNER JOIN all_constraints f ON ucc.owner = f.owner AND ucc.constraint_name = f.constraint_name where ucc.con
+straint_name='METRIC_PK2' and ucc.owner='LND_APP_OWNER' and ucc.table_name not like 'BIN$%' order by ucc.position
+[INFO] Executing with the 'jdbc' executor
+[INFO] select ucc.owner as constraint_container, ucc.constraint_name as constraint_name, ucc.column_name, f.validated as constraint_valida
+te from all_cons_columns ucc INNER JOIN all_constraints f ON ucc.owner = f.owner AND ucc.constraint_name = f.constraint_name where ucc.con
+straint_name='LND_BNF_PROD_REF_UK' and ucc.owner='LND_APP_OWNER' and ucc.table_name not like 'BIN$%' order by ucc.position
+[INFO] Executing with the 'jdbc' executor
+[INFO] select ucc.owner as constraint_container, ucc.constraint_name as constraint_name, ucc.column_name, f.validated as constraint_valida
+te from all_cons_columns ucc INNER JOIN all_constraints f ON ucc.owner = f.owner AND ucc.constraint_name = f.constraint_name where ucc.con
+straint_name='AK1_CBGPT' and ucc.owner='LND_APP_OWNER' and ucc.table_name not like 'BIN$%' order by ucc.position
+[INFO] Executing with the 'jdbc' executor
+[INFO] select ucc.owner as constraint_container, ucc.constraint_name as constraint_name, ucc.column_name, f.validated as constraint_valida
+te from all_cons_columns ucc INNER JOIN all_constraints f ON ucc.owner = f.owner AND ucc.constraint_name = f.constraint_name where ucc.own
+er='LND_APP_OWNER' and ucc.table_name not like 'BIN$%' order by ucc.position
+[INFO] Executing with the 'jdbc' executor
+[INFO] select OWNER, NAME, REFERENCED_OWNER, REFERENCED_NAME from DBA_DEPENDENCIES where REFERENCED_OWNER != 'SYS' AND NOT(NAME LIKE 'BIN$
+%') AND NOT(OWNER = REFERENCED_OWNER AND NAME = REFERENCED_NAME) AND (OWNER='LND_APP_OWNER')
+[INFO] changeSets count: 22
+[INFO] C:\Users\balajpc\IdeaProjects\IJ-lnd-ms-edr\src\main\resources\liquibase\generated-baseline.xml does not exist, creating and adding
+ 22 changesets.
+[INFO] Output written to Change Log file, C:\Users\balajpc\IdeaProjects\IJ-lnd-ms-edr/src/main/resources/liquibase/generated-baseline.xml
+[INFO] ------------------------------------------------------------------------
+[INFO]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 02:23 min
+[INFO] Finished at: 2021-02-24T13:20:52Z
+[INFO] ------------------------------------------------------------------------
+
+C:\Users\balajpc\IdeaProjects\IJ-lnd-ms-edr>mvn -Pliquibase-updateSQL,liquibase-dev -Dliquibase.username=LND_APP_OWNER -Dliquibase.passwor
+d=49Ga9cj1
+[INFO] Scanning for projects...
+[WARNING]
+[WARNING] Some problems were encountered while building the effective model for com.rbs.agilemarkets.digital-platform.lending:lnd-ms-edr:j
+ar:0.0.5-SNAPSHOT
+[WARNING] 'dependencies.dependency.version' for org.junit.jupiter:junit-jupiter:jar is either LATEST or RELEASE (both of them are being de
+precated) @ line 208, column 22
+[WARNING]
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING]
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING]
+[INFO]
+[INFO] ------< com.rbs.agilemarkets.digital-platform.lending:lnd-ms-edr >------
+[INFO] Building lnd-ms-edr 0.0.5-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- liquibase-maven-plugin:3.10.0:updateSQL (default-cli) @ lnd-ms-edr ---
+[INFO] ------------------------------------------------------------------------
+[INFO] Parsing Liquibase Properties File
+[INFO]   File: C:\Users\balajpc\IdeaProjects\IJ-lnd-ms-edr/src/main/resources/liquibase/liquibase-dev.properties
+[INFO]   'parameter.columnSize' in properties file is not being used by this task.
+[INFO] ------------------------------------------------------------------------
+[INFO]
+[INFO]
+[INFO] Liquibase Community 3.10.0 by Datical
+[INFO] Starting Liquibase at Wed, 24 Feb 2021 13:24:00 GMT (version 3.10.0 #10 built at Thu Jun 11 09:47:49 UTC 2020)
+[INFO] Executing with the 'jdbc' executor
+[INFO] ALTER SESSION SET CURRENT_SCHEMA=LND_APP_OWNER
+[INFO] Char encoding not set! The created file will be system dependent!
+[INFO] Output SQL Migration File: C:\Users\balajpc\IdeaProjects\IJ-lnd-ms-edr\target\liquibase\migrate.sql
+[INFO] Parsing Liquibase Properties File C:\Users\balajpc\IdeaProjects\IJ-lnd-ms-edr/src/main/resources/liquibase/liquibase-dev.properties
+ for changeLog parameters
+[INFO] Executing on Database: jdbc:oracle:thin:@vstblsd01d.server.rbsgrp.mde:1535:DOGBDWH1
+[INFO] Executing with the 'jdbc' executor
+[INFO] SELECT COUNT(*) FROM LND_APP_OWNER.LND_EDR_DATABASECHANGELOGLOCK
+[INFO] Executing with the 'jdbc' executor
+[INFO] SELECT COUNT(*) FROM LND_APP_OWNER.LND_EDR_DATABASECHANGELOGLOCK
+[INFO] Successfully acquired change log lock
+[INFO] Executing with the 'jdbc' executor
+[INFO] SELECT MD5SUM FROM LND_APP_OWNER.LND_EDR_DATABASECHANGELOG WHERE MD5SUM IS NOT NULL AND ROWNUM=1
+[INFO] Executing with the 'jdbc' executor
+[INFO] SELECT COUNT(*) FROM LND_APP_OWNER.LND_EDR_DATABASECHANGELOG
+[INFO] Reading from LND_APP_OWNER.LND_EDR_DATABASECHANGELOG
+[INFO] Executing with the 'jdbc' executor
+[INFO] SELECT * FROM LND_APP_OWNER.LND_EDR_DATABASECHANGELOG ORDER BY DATEEXECUTED ASC, ORDEREXECUTED ASC
+[INFO] Sequence LND_EDR_CUST_INFO_SQ created
+[INFO] ChangeSet generated-baseline.xml::1614172846486-1::balajpc (generated) ran successfully in 16ms
+[INFO] Executing with the 'jdbc' executor
+[INFO] SELECT MAX(ORDEREXECUTED) FROM LND_APP_OWNER.LND_EDR_DATABASECHANGELOG
+[INFO] Sequence LND_EDR_CUST_MENU_SQ created
+[INFO] ChangeSet generated-baseline.xml::1614172846486-2::balajpc (generated) ran successfully in 15ms
+[INFO] Sequence LND_EDR_MENU_SQ created
+[INFO] ChangeSet generated-baseline.xml::1614172846486-3::balajpc (generated) ran successfully in 17ms
+[INFO] Sequence LND_EDR_REASON_SQ created
+[INFO] ChangeSet generated-baseline.xml::1614172846486-4::balajpc (generated) ran successfully in 15ms
+[INFO] Sequence LND_EDR_THEME_SQ created
+[INFO] ChangeSet generated-baseline.xml::1614172846486-5::balajpc (generated) ran successfully in 19ms
+[INFO] Table LND_EDR_APPL_TB created
+[INFO] ChangeSet generated-baseline.xml::1614172846486-6::balajpc (generated) ran successfully in 14ms
+[INFO] Table LND_EDR_CUST_MENU_TB created
+[INFO] ChangeSet generated-baseline.xml::1614172846486-7::balajpc (generated) ran successfully in 17ms
+[INFO] Table LND_EDR_CUST_TB created
+[INFO] ChangeSet generated-baseline.xml::1614172846486-8::balajpc (generated) ran successfully in 15ms
+[INFO] Table LND_EDR_LEAD_IND_REF created
+[INFO] ChangeSet generated-baseline.xml::1614172846486-9::balajpc (generated) ran successfully in 20ms
+[INFO] Table LND_EDR_MENU_TB created
+[INFO] ChangeSet generated-baseline.xml::1614172846486-10::balajpc (generated) ran successfully in 15ms
+[INFO] Table LND_EDR_REASON_TB created
+[INFO] ChangeSet generated-baseline.xml::1614172846486-11::balajpc (generated) ran successfully in 15ms
+[INFO] Table LND_EDR_THEME_TB created
+[INFO] ChangeSet generated-baseline.xml::1614172846486-12::balajpc (generated) ran successfully in 15ms
+[INFO] Index IFK1_EDRCMT created
+[INFO] ChangeSet generated-baseline.xml::1614172846486-13::balajpc (generated) ran successfully in 15ms
+[INFO] Index IFK1_EDRCUT created
+[INFO] ChangeSet generated-baseline.xml::1614172846486-14::balajpc (generated) ran successfully in 16ms
+[INFO] Index IFK1_EDRMET created
+[INFO] ChangeSet generated-baseline.xml::1614172846486-15::balajpc (generated) ran successfully in 14ms
+[INFO] Index IFK1_EDRRET created
+[INFO] ChangeSet generated-baseline.xml::1614172846486-16::balajpc (generated) ran successfully in 14ms
+[INFO] Index IFK1_EDRTHT created
+[INFO] ChangeSet generated-baseline.xml::1614172846486-17::balajpc (generated) ran successfully in 16ms
+[INFO] Foreign key constraint added to LND_EDR_CUST_TB (APPL_ID)
+[INFO] ChangeSet generated-baseline.xml::1614172846486-18::balajpc (generated) ran successfully in 26ms
+[INFO] Foreign key constraint added to LND_EDR_MENU_TB (APPL_ID)
+[INFO] ChangeSet generated-baseline.xml::1614172846486-19::balajpc (generated) ran successfully in 15ms
+[INFO] Foreign key constraint added to LND_EDR_CUST_MENU_TB (EDR_CUST_SEQ)
+[INFO] ChangeSet generated-baseline.xml::1614172846486-20::balajpc (generated) ran successfully in 16ms
+[INFO] Foreign key constraint added to LND_EDR_REASON_TB (EDR_CUST_SEQ)
+[INFO] ChangeSet generated-baseline.xml::1614172846486-21::balajpc (generated) ran successfully in 16ms
+[INFO] Foreign key constraint added to LND_EDR_THEME_TB (EDR_CUST_SEQ)
+[INFO] ChangeSet generated-baseline.xml::1614172846486-22::balajpc (generated) ran successfully in 16ms
+[INFO] Successfully released change log lock
+[INFO] ------------------------------------------------------------------------
+[INFO]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 14.445 s
+[INFO] Finished at: 2021-02-24T13:24:07Z
+[INFO] ------------------------------------------------------------------------
+
+C:\Users\balajpc\IdeaProjects\IJ-lnd-ms-edr>mvn -Pliquibase-updateSQL,liquibase-dev -Dliquibase.username=LND_APP_OWNER -Dliquibase.passwor
+d=49Ga9cj1
+[INFO] Scanning for projects...
+[WARNING]
+[WARNING] Some problems were encountered while building the effective model for com.rbs.agilemarkets.digital-platform.lending:lnd-ms-edr:j
+ar:0.0.5-SNAPSHOT
+[WARNING] 'dependencies.dependency.version' for org.junit.jupiter:junit-jupiter:jar is either LATEST or RELEASE (both of them are being de
+precated) @ line 208, column 22
+[WARNING]
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING]
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING]
+[INFO]
+[INFO] ------< com.rbs.agilemarkets.digital-platform.lending:lnd-ms-edr >------
+[INFO] Building lnd-ms-edr 0.0.5-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- liquibase-maven-plugin:3.10.0:updateSQL (default-cli) @ lnd-ms-edr ---
+[INFO] ------------------------------------------------------------------------
+[INFO] Parsing Liquibase Properties File
+[INFO]   File: C:\Users\balajpc\IdeaProjects\IJ-lnd-ms-edr/src/main/resources/liquibase/liquibase-dev.properties
+[INFO]   'parameter.columnSize' in properties file is not being used by this task.
+[INFO] ------------------------------------------------------------------------
+[INFO]
+[INFO]
+[INFO] Liquibase Community 3.10.0 by Datical
+[INFO] Starting Liquibase at Wed, 24 Feb 2021 13:26:31 GMT (version 3.10.0 #10 built at Thu Jun 11 09:47:49 UTC 2020)
+[INFO] Executing with the 'jdbc' executor
+[INFO] ALTER SESSION SET CURRENT_SCHEMA=LND_APP_OWNER
+[INFO] Char encoding not set! The created file will be system dependent!
+[INFO] Output SQL Migration File: C:\Users\balajpc\IdeaProjects\IJ-lnd-ms-edr\target\liquibase\migrate.sql
+[INFO] Parsing Liquibase Properties File C:\Users\balajpc\IdeaProjects\IJ-lnd-ms-edr/src/main/resources/liquibase/liquibase-dev.properties
+ for changeLog parameters
+[INFO] Executing on Database: jdbc:oracle:thin:@vstblsd01d.server.rbsgrp.mde:1535:DOGBDWH1
+[INFO] Executing with the 'jdbc' executor
+[INFO] SELECT COUNT(*) FROM LND_APP_OWNER.LND_EDR_DATABASECHANGELOGLOCK
+[INFO] Executing with the 'jdbc' executor
+[INFO] SELECT COUNT(*) FROM LND_APP_OWNER.LND_EDR_DATABASECHANGELOGLOCK
+[INFO] Successfully acquired change log lock
+[INFO] Executing with the 'jdbc' executor
+[INFO] SELECT MD5SUM FROM LND_APP_OWNER.LND_EDR_DATABASECHANGELOG WHERE MD5SUM IS NOT NULL AND ROWNUM=1
+[INFO] Executing with the 'jdbc' executor
+[INFO] SELECT COUNT(*) FROM LND_APP_OWNER.LND_EDR_DATABASECHANGELOG
+[INFO] Reading from LND_APP_OWNER.LND_EDR_DATABASECHANGELOG
+[INFO] Executing with the 'jdbc' executor
+[INFO] SELECT * FROM LND_APP_OWNER.LND_EDR_DATABASECHANGELOG ORDER BY DATEEXECUTED ASC, ORDEREXECUTED ASC
+[INFO] Sequence LND_EDR_CUST_INFO_SQ created
+[INFO] ChangeSet generated-baseline.xml::1614172846486-1::balajpc (generated) ran successfully in 16ms
+[INFO] Executing with the 'jdbc' executor
+[INFO] SELECT MAX(ORDEREXECUTED) FROM LND_APP_OWNER.LND_EDR_DATABASECHANGELOG
+[INFO] Sequence LND_EDR_CUST_MENU_SQ created
+[INFO] ChangeSet generated-baseline.xml::1614172846486-2::balajpc (generated) ran successfully in 15ms
+[INFO] Sequence LND_EDR_MENU_SQ created
+[INFO] ChangeSet generated-baseline.xml::1614172846486-3::balajpc (generated) ran successfully in 14ms
+[INFO] Sequence LND_EDR_REASON_SQ created
+[INFO] ChangeSet generated-baseline.xml::1614172846486-4::balajpc (generated) ran successfully in 16ms
+[INFO] Sequence LND_EDR_THEME_SQ created
+[INFO] ChangeSet generated-baseline.xml::1614172846486-5::balajpc (generated) ran successfully in 28ms
+[INFO] Table LND_EDR_APPL_TB created
+[INFO] ChangeSet generated-baseline.xml::1614172846486-6::balajpc (generated) ran successfully in 15ms
+[INFO] Table LND_EDR_CUST_MENU_TB created
+[INFO] ChangeSet generated-baseline.xml::1614172846486-7::balajpc (generated) ran successfully in 15ms
+[INFO] Table LND_EDR_CUST_TB created
+[INFO] ChangeSet generated-baseline.xml::1614172846486-8::balajpc (generated) ran successfully in 16ms
+[INFO] Table LND_EDR_LEAD_IND_REF created
+[INFO] ChangeSet generated-baseline.xml::1614172846486-9::balajpc (generated) ran successfully in 16ms
+[INFO] Table LND_EDR_MENU_TB created
+[INFO] ChangeSet generated-baseline.xml::1614172846486-10::balajpc (generated) ran successfully in 16ms
+[INFO] Table LND_EDR_REASON_TB created
+[INFO] ChangeSet generated-baseline.xml::1614172846486-11::balajpc (generated) ran successfully in 19ms
+[INFO] Table LND_EDR_THEME_TB created
+[INFO] ChangeSet generated-baseline.xml::1614172846486-12::balajpc (generated) ran successfully in 26ms
+[INFO] Index IFK1_EDRCMT created
+[INFO] ChangeSet generated-baseline.xml::1614172846486-13::balajpc (generated) ran successfully in 15ms
+[INFO] Index IFK1_EDRCUT created
+[INFO] ChangeSet generated-baseline.xml::1614172846486-14::balajpc (generated) ran successfully in 15ms
+[INFO] Index IFK1_EDRMET created
+[INFO] ChangeSet generated-baseline.xml::1614172846486-15::balajpc (generated) ran successfully in 14ms
+[INFO] Index IFK1_EDRRET created
+[INFO] ChangeSet generated-baseline.xml::1614172846486-16::balajpc (generated) ran successfully in 16ms
+[INFO] Index IFK1_EDRTHT created
+[INFO] ChangeSet generated-baseline.xml::1614172846486-17::balajpc (generated) ran successfully in 14ms
+[INFO] Foreign key constraint added to LND_EDR_CUST_TB (APPL_ID)
+[INFO] ChangeSet generated-baseline.xml::1614172846486-18::balajpc (generated) ran successfully in 26ms
+[INFO] Foreign key constraint added to LND_EDR_MENU_TB (APPL_ID)
+[INFO] ChangeSet generated-baseline.xml::1614172846486-19::balajpc (generated) ran successfully in 16ms
+[INFO] Foreign key constraint added to LND_EDR_CUST_MENU_TB (EDR_CUST_SEQ)
+[INFO] ChangeSet generated-baseline.xml::1614172846486-20::balajpc (generated) ran successfully in 17ms
+[INFO] Foreign key constraint added to LND_EDR_REASON_TB (EDR_CUST_SEQ)
+[INFO] ChangeSet generated-baseline.xml::1614172846486-21::balajpc (generated) ran successfully in 28ms
+[INFO] Foreign key constraint added to LND_EDR_THEME_TB (EDR_CUST_SEQ)
+[INFO] ChangeSet generated-baseline.xml::1614172846486-22::balajpc (generated) ran successfully in 17ms
+[INFO] Successfully released change log lock
+[INFO] ------------------------------------------------------------------------
+[INFO]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 12.494 s
+[INFO] Finished at: 2021-02-24T13:26:36Z
+[INFO] ------------------------------------------------------------------------
+
+
+
+
+C:\Users\balajpc\IdeaProjects\IJ-lnd-ms-edr>git pull
+warning: Pulling without specifying how to reconcile divergent branches is
+discouraged. You can squelch this message by running one of the following
+commands sometime before your next pull:
+
+  git config pull.rebase false  # merge (the default strategy)
+  git config pull.rebase true   # rebase
+  git config pull.ff only       # fast-forward only
+
+You can replace "git config" with "git config --global" to set a default
+preference for all repositories. You can also pass --rebase, --no-rebase,
+or --ff-only on the command line to override the configured default per
+invocation.
+
+Password for 'https://balajpc@stash.dts.fm.rbsgrp.net':
+remote: Counting objects: 32, done.
+remote: Compressing objects: 100% (20/20), done.
+remote: Total 32 (delta 9), reused 0 (delta 0)
+Unpacking objects: 100% (32/32), 2.61 KiB | 17.00 KiB/s, done.
+From https://stash.dts.fm.rbsgrp.net/scm/lending/lnd-ms-edr
+   a1c5d98..c472c8f  feature/BCBTKPC-13193 -> origin/feature/BCBTKPC-13193
+   6aceb32..7fa828d  master                -> origin/master
+ * [new tag]         build/1.34.0          -> build/1.34.0
+ * [new tag]         build/1.35.0          -> build/1.35.0
+Already up to date.
+
+
+
+
+
+
+C:\Users\balajpc\IdeaProjects\IJ-lnd-ms-edr>mvn -Pliquibase-generate,liquibase-dev -Dliquibase.username=LND_APP_OWNER -Dliquibase.password=49Ga9cj1
+[INFO] Scanning for projects...
+[WARNING]
+[WARNING] Some problems were encountered while building the effective model for com.rbs.agilemarkets.digital-platform.lending:lnd-ms-edr:jar:0.0.5-SNAPS
+HOT
+[WARNING] 'dependencies.dependency.version' for org.junit.jupiter:junit-jupiter:jar is either LATEST or RELEASE (both of them are being deprecated) @ li
+ne 208, column 22
+[WARNING]
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING]
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING]
+[INFO]
+[INFO] ------< com.rbs.agilemarkets.digital-platform.lending:lnd-ms-edr >------
+[INFO] Building lnd-ms-edr 0.0.5-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- liquibase-maven-plugin:3.10.0:generateChangeLog (default-cli) @ lnd-ms-edr ---
+[INFO] ------------------------------------------------------------------------
+[INFO] Parsing Liquibase Properties File
+[INFO]   File: C:\Users\balajpc\IdeaProjects\IJ-lnd-ms-edr/src/main/resources/liquibase/liquibase-dev.properties
+[INFO]   'parameter.columnSize' in properties file is not being used by this task.
+[INFO] ------------------------------------------------------------------------
+[INFO]
+[INFO]
+[INFO] Liquibase Community 3.10.0 by Datical
+[INFO] Starting Liquibase at Thu, 25 Feb 2021 03:35:18 GMT (version 3.10.0 #10 built at Thu Jun 11 09:47:49 UTC 2020)
+[INFO] Executing with the 'jdbc' executor
+[INFO] ALTER SESSION SET CURRENT_SCHEMA=LND_APP_OWNER
+[INFO] Parsing Liquibase Properties File C:\Users\balajpc\IdeaProjects\IJ-lnd-ms-edr/src/main/resources/liquibase/liquibase-dev.properties for changeLog
+ parameters
+[INFO] Executing on Database: jdbc:oracle:thin:@vstblsd01d.server.rbsgrp.mde:1535:DOGBDWH1
+[INFO] Generating Change Log from database LND_APP_OWNER @ jdbc:oracle:thin:@vstblsd01d.server.rbsgrp.mde:1535:DOGBDWH1 (Default Schema: LND_APP_OWNER)
+[INFO] Executing with the 'jdbc' executor
+[INFO] SELECT sequence_name,
+CASE WHEN increment_by > 0
+     THEN CASE WHEN min_value=1 THEN NULL ELSE min_value END
+     ELSE CASE WHEN min_value=(-999999999999999999999999999) THEN NULL else min_value END
+END AS min_value,
+CASE WHEN increment_by > 0
+     THEN CASE WHEN max_value=999999999999999999999999999 THEN NULL ELSE max_value END
+     ELSE CASE WHEN max_value=last_number THEN NULL else max_value END
+END  AS max_value,
+CASE WHEN increment_by = 1 THEN NULL ELSE increment_by END AS increment_by,
+CASE WHEN cycle_flag = 'N' THEN NULL ELSE cycle_flag END AS will_cycle,
+CASE WHEN order_flag = 'N' THEN NULL ELSE order_flag END AS is_ordered,
+LAST_NUMBER as START_VALUE,
+CASE WHEN cache_size = 20 THEN NULL ELSE cache_size END AS cache_size
+FROM ALL_SEQUENCES WHERE SEQUENCE_OWNER = 'LND_APP_OWNER'
+alue=last_number THEN NULL else max_value END
+END  AS max_value,
+CASE WHEN increment_by = 1 THEN NULL ELSE increment_by END AS increment_by,
+CASE WHEN cycle_flag = 'N' THEN NULL ELSE cycle_flag END AS will_cycle,
+CASE WHEN order_flag = 'N' THEN NULL ELSE order_flag END AS is_ordered,
+LAST_NUMBER as START_VALUE,
+CASE WHEN cache_size = 20 THEN NULL ELSE cache_size END AS cache_size
+FROM ALL_SEQUENCES WHERE SEQUENCE_OWNER = 'LND_APP_OWNER'
+[INFO] Executing with the 'jdbc' executor
+[INFO] select ucc.owner as constraint_container, ucc.constraint_name as constraint_name, ucc.column_name, f.validated as constraint_validate fr
+om all_cons_columns ucc INNER JOIN all_constraints f ON ucc.owner = f.owner AND ucc.constraint_name = f.constraint_name where ucc.constraint_na
+me='LOOKUP_REFDATA_UQ1' and ucc.owner='LND_APP_OWNER' and ucc.table_name not like 'BIN$%' order by ucc.position
+[INFO] Executing with the 'jdbc' executor
+[INFO] select ucc.owner as constraint_container, ucc.constraint_name as constraint_name, ucc.column_name, f.validated as constraint_validate fr
+om all_cons_columns ucc INNER JOIN all_constraints f ON ucc.owner = f.owner AND ucc.constraint_name = f.constraint_name where ucc.constraint_na
+me='METRIC_PK2' and ucc.owner='LND_APP_OWNER' and ucc.table_name not like 'BIN$%' order by ucc.position
+[INFO] Executing with the 'jdbc' executor
+[INFO] select ucc.owner as constraint_container, ucc.constraint_name as constraint_name, ucc.column_name, f.validated as constraint_validate fr
+om all_cons_columns ucc INNER JOIN all_constraints f ON ucc.owner = f.owner AND ucc.constraint_name = f.constraint_name where ucc.constraint_na
+me='LND_BNF_PROD_REF_UK' and ucc.owner='LND_APP_OWNER' and ucc.table_name not like 'BIN$%' order by ucc.position
+[INFO] Executing with the 'jdbc' executor
+[INFO] select ucc.owner as constraint_container, ucc.constraint_name as constraint_name, ucc.column_name, f.validated as constraint_validate fr
+om all_cons_columns ucc INNER JOIN all_constraints f ON ucc.owner = f.owner AND ucc.constraint_name = f.constraint_name where ucc.constraint_na
+me='AK1_CBGPT' and ucc.owner='LND_APP_OWNER' and ucc.table_name not like 'BIN$%' order by ucc.position
+[INFO] Executing with the 'jdbc' executor
+[INFO] select ucc.owner as constraint_container, ucc.constraint_name as constraint_name, ucc.column_name, f.validated as constraint_validate fr
+om all_cons_columns ucc INNER JOIN all_constraints f ON ucc.owner = f.owner AND ucc.constraint_name = f.constraint_name where ucc.owner='LND_AP
+P_OWNER' and ucc.table_name not like 'BIN$%' order by ucc.position
+[INFO] Executing with the 'jdbc' executor
+[INFO] select OWNER, NAME, REFERENCED_OWNER, REFERENCED_NAME from DBA_DEPENDENCIES where REFERENCED_OWNER != 'SYS' AND NOT(NAME LIKE 'BIN$%') A
+ND NOT(OWNER = REFERENCED_OWNER AND NAME = REFERENCED_NAME) AND (OWNER='LND_APP_OWNER')
+[INFO] changeSets count: 22
+[INFO] C:\Users\balajpc\IdeaProjects\IJ-lnd-ms-edr\src\main\resources\liquibase\generated-baseline.xml does not exist, creating and adding 22 c
+hangesets.
+[INFO] Output written to Change Log file, C:\Users\balajpc\IdeaProjects\IJ-lnd-ms-edr/src/main/resources/liquibase/generated-baseline.xml
+[INFO] ------------------------------------------------------------------------
+[INFO]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 02:23 min
+[INFO] Finished at: 2021-02-25T03:37:35Z
+[INFO] ------------------------------------------------------------------------
+
+C:\Users\balajpc\IdeaProjects\IJ-lnd-ms-edr>mvn -Pliquibase-sync,liquibase-dev -Dliquibase.username=LND_APP_OWNER -Dliquibase.password=49Ga9cj1
+
+[INFO] Scanning for projects...
+[WARNING]
+[WARNING] Some problems were encountered while building the effective model for com.rbs.agilemarkets.digital-platform.lending:lnd-ms-edr:jar:0.
+0.5-SNAPSHOT
+[WARNING] 'dependencies.dependency.version' for org.junit.jupiter:junit-jupiter:jar is either LATEST or RELEASE (both of them are being depreca
+ted) @ line 208, column 22
+[WARNING]
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING]
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING]
+[INFO]
+[INFO] ------< com.rbs.agilemarkets.digital-platform.lending:lnd-ms-edr >------
+[INFO] Building lnd-ms-edr 0.0.5-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- liquibase-maven-plugin:3.10.0:changelogSync (default-cli) @ lnd-ms-edr ---
+[INFO] ------------------------------------------------------------------------
+[INFO] Parsing Liquibase Properties File
+[INFO]   File: C:\Users\balajpc\IdeaProjects\IJ-lnd-ms-edr/src/main/resources/liquibase/liquibase-dev.properties
+[INFO]   'parameter.columnSize' in properties file is not being used by this task.
+[INFO] ------------------------------------------------------------------------
+[INFO]
+[INFO]
+[INFO] Liquibase Community 3.10.0 by Datical
+[INFO] Starting Liquibase at Thu, 25 Feb 2021 03:41:18 GMT (version 3.10.0 #10 built at Thu Jun 11 09:47:49 UTC 2020)
+[INFO] Executing with the 'jdbc' executor
+[INFO] ALTER SESSION SET CURRENT_SCHEMA=LND_APP_OWNER
+[INFO] Parsing Liquibase Properties File C:\Users\balajpc\IdeaProjects\IJ-lnd-ms-edr/src/main/resources/liquibase/liquibase-dev.properties for
+changeLog parameters
+[INFO] Executing on Database: jdbc:oracle:thin:@vstblsd01d.server.rbsgrp.mde:1535:DOGBDWH1
+[INFO] Executing with the 'jdbc' executor
+[INFO] SELECT COUNT(*) FROM LND_APP_OWNER.LND_EDR_DATABASECHANGELOGLOCK
+[INFO] Executing with the 'jdbc' executor
+[INFO] SELECT COUNT(*) FROM LND_APP_OWNER.LND_EDR_DATABASECHANGELOGLOCK
+[INFO] Executing with the 'jdbc' executor
+[INFO] SELECT LOCKED FROM LND_APP_OWNER.LND_EDR_DATABASECHANGELOGLOCK WHERE ID=1 FOR UPDATE
+[INFO] Executing with the 'jdbc' executor
+[INFO] Successfully acquired change log lock
+[INFO] Executing with the 'jdbc' executor
+[INFO] SELECT MD5SUM FROM LND_APP_OWNER.LND_EDR_DATABASECHANGELOG WHERE MD5SUM IS NOT NULL AND ROWNUM=1
+[INFO] Executing with the 'jdbc' executor
+[INFO] SELECT COUNT(*) FROM LND_APP_OWNER.LND_EDR_DATABASECHANGELOG
+[INFO] Reading from LND_APP_OWNER.LND_EDR_DATABASECHANGELOG
+[INFO] Executing with the 'jdbc' executor
+[INFO] SELECT * FROM LND_APP_OWNER.LND_EDR_DATABASECHANGELOG ORDER BY DATEEXECUTED ASC, ORDEREXECUTED ASC
+[INFO] Executing with the 'jdbc' executor
+[INFO] Executing with the 'jdbc' executor
+[INFO] SELECT MAX(ORDEREXECUTED) FROM LND_APP_OWNER.LND_EDR_DATABASECHANGELOG
+[INFO] INSERT INTO LND_APP_OWNER.LND_EDR_DATABASECHANGELOG (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, E
+XECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1614224250906-1', 'balajpc (generated)', 'generated-baseline.xml', SYSTIMESTAMP,
+137, '8:cd39b6e793a6c5a3c400e1fca008eb98', 'createSequence sequenceName=LND_EDR_CUST_INFO_SQ', '', 'EXECUTED', NULL, NULL, '3.10.0', '422448234
+7')
+[INFO] Executing with the 'jdbc' executor
+[INFO] INSERT INTO LND_APP_OWNER.LND_EDR_DATABASECHANGELOG (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, E
+XECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1614224250906-2', 'balajpc (generated)', 'generated-baseline.xml', SYSTIMESTAMP,
+138, '8:38b7b476ee2db380499132d24d8da49a', 'createSequence sequenceName=LND_EDR_CUST_MENU_SQ', '', 'EXECUTED', NULL, NULL, '3.10.0', '422448234
+7')
+[INFO] Executing with the 'jdbc' executor
+[INFO] INSERT INTO LND_APP_OWNER.LND_EDR_DATABASECHANGELOG (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, E
+XECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1614224250906-3', 'balajpc (generated)', 'generated-baseline.xml', SYSTIMESTAMP,
+139, '8:3bbb8b8ae6da9108871a6cfac36679d0', 'createSequence sequenceName=LND_EDR_MENU_SQ', '', 'EXECUTED', NULL, NULL, '3.10.0', '4224482347')
+[INFO] Executing with the 'jdbc' executor
+[INFO] INSERT INTO LND_APP_OWNER.LND_EDR_DATABASECHANGELOG (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, E
+XECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1614224250906-4', 'balajpc (generated)', 'generated-baseline.xml', SYSTIMESTAMP,
+140, '8:8d5bba15bea3222c44ab2bf7887fbfa5', 'createSequence sequenceName=LND_EDR_REASON_SQ', '', 'EXECUTED', NULL, NULL, '3.10.0', '4224482347')
+
+[INFO] Executing with the 'jdbc' executor
+[INFO] INSERT INTO LND_APP_OWNER.LND_EDR_DATABASECHANGELOG (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, E
+XECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1614224250906-5', 'balajpc (generated)', 'generated-baseline.xml', SYSTIMESTAMP,
+141, '8:2ebed134d2ee5a335fc5fdff6ea8b246', 'createSequence sequenceName=LND_EDR_THEME_SQ', '', 'EXECUTED', NULL, NULL, '3.10.0', '4224482347')
+[INFO] Executing with the 'jdbc' executor
+[INFO] INSERT INTO LND_APP_OWNER.LND_EDR_DATABASECHANGELOG (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, E
+XECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1614224250906-6', 'balajpc (generated)', 'generated-baseline.xml', SYSTIMESTAMP,
+142, '8:1630610ba43f9b6196443d1b3b82b6ca', 'createTable tableName=LND_EDR_APPL_TB', '', 'EXECUTED', NULL, NULL, '3.10.0', '4224482347')
+[INFO] Executing with the 'jdbc' executor
+[INFO] INSERT INTO LND_APP_OWNER.LND_EDR_DATABASECHANGELOG (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, E
+XECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1614224250906-7', 'balajpc (generated)', 'generated-baseline.xml', SYSTIMESTAMP,
+143, '8:8c44582b259c7cc155f5e7a960ce0c44', 'createTable tableName=LND_EDR_CUST_MENU_TB', '', 'EXECUTED', NULL, NULL, '3.10.0', '4224482347')
+[INFO] Executing with the 'jdbc' executor
+[INFO] INSERT INTO LND_APP_OWNER.LND_EDR_DATABASECHANGELOG (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, E
+XECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1614224250906-8', 'balajpc (generated)', 'generated-baseline.xml', SYSTIMESTAMP,
+144, '8:7640fe20ceba2cb023e7c2106070c5ec', 'createTable tableName=LND_EDR_CUST_TB', '', 'EXECUTED', NULL, NULL, '3.10.0', '4224482347')
+[INFO] Executing with the 'jdbc' executor
+[INFO] INSERT INTO LND_APP_OWNER.LND_EDR_DATABASECHANGELOG (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, E
+XECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1614224250906-9', 'balajpc (generated)', 'generated-baseline.xml', SYSTIMESTAMP,
+145, '8:1d92e1456a6d895878995f970952b0f2', 'createTable tableName=LND_EDR_LEAD_IND_REF', '', 'EXECUTED', NULL, NULL, '3.10.0', '4224482347')
+[INFO] Executing with the 'jdbc' executor
+[INFO] INSERT INTO LND_APP_OWNER.LND_EDR_DATABASECHANGELOG (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, E
+XECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1614224250906-10', 'balajpc (generated)', 'generated-baseline.xml', SYSTIMESTAMP,
+ 146, '8:05086493ffa2e4252d615216627cc8a3', 'createTable tableName=LND_EDR_MENU_TB', '', 'EXECUTED', NULL, NULL, '3.10.0', '4224482347')
+[INFO] Executing with the 'jdbc' executor
+[INFO] INSERT INTO LND_APP_OWNER.LND_EDR_DATABASECHANGELOG (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, E
+XECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1614224250906-11', 'balajpc (generated)', 'generated-baseline.xml', SYSTIMESTAMP,
+ 147, '8:a25073e542ec5fcb7751e7c529372ab5', 'createTable tableName=LND_EDR_REASON_TB', '', 'EXECUTED', NULL, NULL, '3.10.0', '4224482347')
+[INFO] Executing with the 'jdbc' executor
+[INFO] INSERT INTO LND_APP_OWNER.LND_EDR_DATABASECHANGELOG (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, E
+XECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1614224250906-12', 'balajpc (generated)', 'generated-baseline.xml', SYSTIMESTAMP,
+ 148, '8:676c6fdd99088fe374bd15b1be1f6aa5', 'createTable tableName=LND_EDR_THEME_TB', '', 'EXECUTED', NULL, NULL, '3.10.0', '4224482347')
+[INFO] Executing with the 'jdbc' executor
+[INFO] INSERT INTO LND_APP_OWNER.LND_EDR_DATABASECHANGELOG (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, E
+XECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1614224250906-13', 'balajpc (generated)', 'generated-baseline.xml', SYSTIMESTAMP,
+ 149, '8:cd9619a1bcc026f491467d308ec0c1b9', 'createIndex indexName=IFK1_EDRCMT, tableName=LND_EDR_CUST_MENU_TB', '', 'EXECUTED', NULL, NULL, '3
+.10.0', '4224482347')
+[INFO] Executing with the 'jdbc' executor
+[INFO] INSERT INTO LND_APP_OWNER.LND_EDR_DATABASECHANGELOG (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, E
+XECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1614224250906-14', 'balajpc (generated)', 'generated-baseline.xml', SYSTIMESTAMP,
+ 150, '8:042609c9a22ed1ffda45bcb1e8ea60a6', 'createIndex indexName=IFK1_EDRCUT, tableName=LND_EDR_CUST_TB', '', 'EXECUTED', NULL, NULL, '3.10.0
+', '4224482347')
+[INFO] Executing with the 'jdbc' executor
+[INFO] INSERT INTO LND_APP_OWNER.LND_EDR_DATABASECHANGELOG (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, E
+XECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1614224250906-15', 'balajpc (generated)', 'generated-baseline.xml', SYSTIMESTAMP,
+ 151, '8:2b0d0e2596a00c094ae989c4cded428f', 'createIndex indexName=IFK1_EDRMET, tableName=LND_EDR_MENU_TB', '', 'EXECUTED', NULL, NULL, '3.10.0
+', '4224482347')
+[INFO] Executing with the 'jdbc' executor
+[INFO] INSERT INTO LND_APP_OWNER.LND_EDR_DATABASECHANGELOG (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, E
+XECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1614224250906-16', 'balajpc (generated)', 'generated-baseline.xml', SYSTIMESTAMP,
+ 152, '8:8e088a70f704161d849cf0cf66f20c20', 'createIndex indexName=IFK1_EDRRET, tableName=LND_EDR_REASON_TB', '', 'EXECUTED', NULL, NULL, '3.10
+.0', '4224482347')
+[INFO] Executing with the 'jdbc' executor
+[INFO] INSERT INTO LND_APP_OWNER.LND_EDR_DATABASECHANGELOG (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, E
+XECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1614224250906-17', 'balajpc (generated)', 'generated-baseline.xml', SYSTIMESTAMP,
+ 153, '8:edb0c33d3577d1b76503f049815066c2', 'createIndex indexName=IFK1_EDRTHT, tableName=LND_EDR_THEME_TB', '', 'EXECUTED', NULL, NULL, '3.10.
+0', '4224482347')
+[INFO] Executing with the 'jdbc' executor
+[INFO] INSERT INTO LND_APP_OWNER.LND_EDR_DATABASECHANGELOG (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, E
+XECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1614224250906-18', 'balajpc (generated)', 'generated-baseline.xml', SYSTIMESTAMP,
+ 154, '8:4a4802e8b95c77f52ef23c8c7a2b706e', 'addForeignKeyConstraint baseTableName=LND_EDR_CUST_TB, constraintName=FK_EDRAPT_EDRCUT, referenced
+TableName=LND_EDR_APPL_TB', '', 'EXECUTED', NULL, NULL, '3.10.0', '4224482347')
+[INFO] Executing with the 'jdbc' executor
+[INFO] INSERT INTO LND_APP_OWNER.LND_EDR_DATABASECHANGELOG (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, E
+XECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1614224250906-19', 'balajpc (generated)', 'generated-baseline.xml', SYSTIMESTAMP,
+ 155, '8:ea115352fed591124f77a7f593d1cb14', 'addForeignKeyConstraint baseTableName=LND_EDR_MENU_TB, constraintName=FK_EDRAPT_EDRMET, referenced
+TableName=LND_EDR_APPL_TB', '', 'EXECUTED', NULL, NULL, '3.10.0', '4224482347')
+[INFO] Executing with the 'jdbc' executor
+[INFO] INSERT INTO LND_APP_OWNER.LND_EDR_DATABASECHANGELOG (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, E
+XECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1614224250906-20', 'balajpc (generated)', 'generated-baseline.xml', SYSTIMESTAMP,
+ 156, '8:700b69fdc24d4f9066208e1efdd4899e', 'addForeignKeyConstraint baseTableName=LND_EDR_CUST_MENU_TB, constraintName=FK_EDRCUT_EDRCMT, refer
+encedTableName=LND_EDR_CUST_TB', '', 'EXECUTED', NULL, NULL, '3.10.0', '4224482347')
+[INFO] Executing with the 'jdbc' executor
+[INFO] INSERT INTO LND_APP_OWNER.LND_EDR_DATABASECHANGELOG (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, E
+XECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1614224250906-21', 'balajpc (generated)', 'generated-baseline.xml', SYSTIMESTAMP,
+ 157, '8:8771bfba9d66c9df77a3bfb67427d1fb', 'addForeignKeyConstraint baseTableName=LND_EDR_REASON_TB, constraintName=FK_EDRCUT_EDRRET, referenc
+edTableName=LND_EDR_CUST_TB', '', 'EXECUTED', NULL, NULL, '3.10.0', '4224482347')
+[INFO] Executing with the 'jdbc' executor
+[INFO] INSERT INTO LND_APP_OWNER.LND_EDR_DATABASECHANGELOG (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, E
+XECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1614224250906-22', 'balajpc (generated)', 'generated-baseline.xml', SYSTIMESTAMP,
+ 158, '8:27f6649762ef72a9253d85e82a71b837', 'addForeignKeyConstraint baseTableName=LND_EDR_THEME_TB, constraintName=FK_EDRCUT_EDRTHT, reference
+dTableName=LND_EDR_CUST_TB', '', 'EXECUTED', NULL, NULL, '3.10.0', '4224482347')
+[INFO] Executing with the 'jdbc' executor
+[INFO] Successfully released change log lock
+[INFO] ------------------------------------------------------------------------
+[INFO]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 11.918 s
+[INFO] Finished at: 2021-02-25T03:41:23Z
+[INFO] ------------------------------------------------------------------------
+
+C:\Users\balajpc\IdeaProjects\IJ-lnd-ms-edr>mvn -Pliquibase-update,liquibase-dev -Dliquibase.username=LND_APP_OWNER -Dliquibase.password=49Ga9c
+j1
+[INFO] Scanning for projects...
+[WARNING]
+[WARNING] Some problems were encountered while building the effective model for com.rbs.agilemarkets.digital-platform.lending:lnd-ms-edr:jar:0.
+0.5-SNAPSHOT
+[WARNING] 'dependencies.dependency.version' for org.junit.jupiter:junit-jupiter:jar is either LATEST or RELEASE (both of them are being depreca
+ted) @ line 208, column 22
+[WARNING]
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING]
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING]
+[INFO]
+[INFO] ------< com.rbs.agilemarkets.digital-platform.lending:lnd-ms-edr >------
+[INFO] Building lnd-ms-edr 0.0.5-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- liquibase-maven-plugin:3.10.0:update (default-cli) @ lnd-ms-edr ---
+[INFO] ------------------------------------------------------------------------
+[INFO] Parsing Liquibase Properties File
+[INFO]   File: C:\Users\balajpc\IdeaProjects\IJ-lnd-ms-edr/src/main/resources/liquibase/liquibase-dev.properties
+[INFO]   'parameter.columnSize' in properties file is not being used by this task.
+[INFO] ------------------------------------------------------------------------
+[INFO]
+[INFO]
+[INFO] Liquibase Community 3.10.0 by Datical
+[INFO] Starting Liquibase at Thu, 25 Feb 2021 03:41:57 GMT (version 3.10.0 #10 built at Thu Jun 11 09:47:49 UTC 2020)
+[INFO] Executing with the 'jdbc' executor
+[INFO] ALTER SESSION SET CURRENT_SCHEMA=LND_APP_OWNER
+[INFO] Parsing Liquibase Properties File C:\Users\balajpc\IdeaProjects\IJ-lnd-ms-edr/src/main/resources/liquibase/liquibase-dev.properties for
+changeLog parameters
+[INFO] Executing on Database: jdbc:oracle:thin:@vstblsd01d.server.rbsgrp.mde:1535:DOGBDWH1
+[INFO] Executing with the 'jdbc' executor
+[INFO] SELECT COUNT(*) FROM LND_APP_OWNER.LND_EDR_DATABASECHANGELOGLOCK
+[INFO] Executing with the 'jdbc' executor
+[INFO] SELECT COUNT(*) FROM LND_APP_OWNER.LND_EDR_DATABASECHANGELOGLOCK
+[INFO] Executing with the 'jdbc' executor
+[INFO] SELECT LOCKED FROM LND_APP_OWNER.LND_EDR_DATABASECHANGELOGLOCK WHERE ID=1 FOR UPDATE
+[INFO] Executing with the 'jdbc' executor
+[INFO] Successfully acquired change log lock
+[INFO] Executing with the 'jdbc' executor
+[INFO] SELECT MD5SUM FROM LND_APP_OWNER.LND_EDR_DATABASECHANGELOG WHERE MD5SUM IS NOT NULL AND ROWNUM=1
+[INFO] Executing with the 'jdbc' executor
+[INFO] SELECT COUNT(*) FROM LND_APP_OWNER.LND_EDR_DATABASECHANGELOG
+[INFO] Reading from LND_APP_OWNER.LND_EDR_DATABASECHANGELOG
+[INFO] Executing with the 'jdbc' executor
+[INFO] SELECT * FROM LND_APP_OWNER.LND_EDR_DATABASECHANGELOG ORDER BY DATEEXECUTED ASC, ORDEREXECUTED ASC
+[INFO] Executing with the 'jdbc' executor
+[INFO] Successfully released change log lock
+[INFO] ------------------------------------------------------------------------
+[INFO]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 13.914 s
+[INFO] Finished at: 2021-02-25T03:42:03Z
+[INFO] ------------------------------------------------------------------------
+
+C:\Users\balajpc\IdeaProjects\IJ-lnd-ms-edr>mvn -Pliquibase-tag,liquibase-dev -Dliquibase.username=LND_APP_OWNER -Dliquibase.password=49Ga9cj1
+-Dliquibase.tag=10
+[INFO] Scanning for projects...
+[WARNING]
+[WARNING] Some problems were encountered while building the effective model for com.rbs.agilemarkets.digital-platform.lending:lnd-ms-edr:jar:0.
+0.5-SNAPSHOT
+[WARNING] 'dependencies.dependency.version' for org.junit.jupiter:junit-jupiter:jar is either LATEST or RELEASE (both of them are being depreca
+ted) @ line 208, column 22
+[WARNING]
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING]
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING]
+[INFO]
+[INFO] ------< com.rbs.agilemarkets.digital-platform.lending:lnd-ms-edr >------
+[INFO] Building lnd-ms-edr 0.0.5-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- liquibase-maven-plugin:3.10.0:tag (default-cli) @ lnd-ms-edr ---
+[INFO] ------------------------------------------------------------------------
+[INFO] Parsing Liquibase Properties File
+[INFO]   File: C:\Users\balajpc\IdeaProjects\IJ-lnd-ms-edr/src/main/resources/liquibase/liquibase-dev.properties
+[INFO]   'parameter.columnSize' in properties file is not being used by this task.
+[INFO] ------------------------------------------------------------------------
+[INFO]
+[INFO]
+[INFO] Liquibase Community 3.10.0 by Datical
+[INFO] Starting Liquibase at Thu, 25 Feb 2021 03:44:17 GMT (version 3.10.0 #10 built at Thu Jun 11 09:47:49 UTC 2020)
+[INFO] Executing with the 'jdbc' executor
+[INFO] ALTER SESSION SET CURRENT_SCHEMA=LND_APP_OWNER
+[INFO] Parsing Liquibase Properties File C:\Users\balajpc\IdeaProjects\IJ-lnd-ms-edr/src/main/resources/liquibase/liquibase-dev.properties for
+changeLog parameters
+[INFO] Executing on Database: jdbc:oracle:thin:@vstblsd01d.server.rbsgrp.mde:1535:DOGBDWH1
+[INFO] Executing with the 'jdbc' executor
+[INFO] SELECT COUNT(*) FROM LND_APP_OWNER.LND_EDR_DATABASECHANGELOGLOCK
+[INFO] Executing with the 'jdbc' executor
+[INFO] SELECT COUNT(*) FROM LND_APP_OWNER.LND_EDR_DATABASECHANGELOGLOCK
+[INFO] Executing with the 'jdbc' executor
+[INFO] SELECT LOCKED FROM LND_APP_OWNER.LND_EDR_DATABASECHANGELOGLOCK WHERE ID=1 FOR UPDATE
+[INFO] Executing with the 'jdbc' executor
+[INFO] Successfully acquired change log lock
+[INFO] Executing with the 'jdbc' executor
+[INFO] SELECT MD5SUM FROM LND_APP_OWNER.LND_EDR_DATABASECHANGELOG WHERE MD5SUM IS NOT NULL AND ROWNUM=1
+[INFO] Executing with the 'jdbc' executor
+[INFO] SELECT COUNT(*) FROM LND_APP_OWNER.LND_EDR_DATABASECHANGELOG
+[INFO] Executing with the 'jdbc' executor
+[INFO] MERGE INTO LND_APP_OWNER.LND_EDR_DATABASECHANGELOG a USING (SELECT * FROM (SELECT ORDEREXECUTED, DATEEXECUTED from LND_APP_OWNER.LND_EDR
+_DATABASECHANGELOG order by DATEEXECUTED desc, ORDEREXECUTED desc) where rownum=1) b ON ( a.DATEEXECUTED = b.DATEEXECUTED and a.ORDEREXECUTED=b
+.ORDEREXECUTED ) WHEN MATCHED THEN UPDATE SET  a.tag='10'
+[INFO] Executing with the 'jdbc' executor
+[INFO] Successfully released change log lock
+[INFO] ------------------------------------------------------------------------
+[INFO]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 8.925 s
+[INFO] Finished at: 2021-02-25T03:44:20Z
+[INFO] ------------------------------------------------------------------------
+000000000000000000000000000000000000000000000000000000000000000000000000000
+
+C:\Users\balajpc\IdeaProjects\IJ-lnd-ms-edr>mvn -Pliquibase-rollback,liquibase-dev -Dliquibase.username=LND_APP_OWNER -Dliquibase.password=49Ga
+9cj1 -Dliquibase.rollbackCount=1
+[INFO] Scanning for projects...
+[WARNING]
+[WARNING] Some problems were encountered while building the effective model for com.rbs.agilemarkets.digital-platform.lending:lnd-ms-edr:jar:0.
+0.5-SNAPSHOT
+[WARNING] 'dependencies.dependency.version' for org.junit.jupiter:junit-jupiter:jar is either LATEST or RELEASE (both of them are being depreca
+ted) @ line 208, column 22
+[WARNING]
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING]
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING]
+[INFO]
+[INFO] ------< com.rbs.agilemarkets.digital-platform.lending:lnd-ms-edr >------
+[INFO] Building lnd-ms-edr 0.0.5-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- liquibase-maven-plugin:3.10.0:rollback (default-cli) @ lnd-ms-edr ---
+[INFO] ------------------------------------------------------------------------
+[INFO] Parsing Liquibase Properties File
+[INFO]   File: C:\Users\balajpc\IdeaProjects\IJ-lnd-ms-edr/src/main/resources/liquibase/liquibase-dev.properties
+[INFO]   'parameter.columnSize' in properties file is not being used by this task.
+[INFO] ------------------------------------------------------------------------
+[INFO]
+[INFO]
+[INFO] Liquibase Community 3.10.0 by Datical
+[INFO] Starting Liquibase at Thu, 25 Feb 2021 03:55:06 GMT (version 3.10.0 #10 built at Thu Jun 11 09:47:49 UTC 2020)
+[INFO] Executing with the 'jdbc' executor
+[INFO] ALTER SESSION SET CURRENT_SCHEMA=LND_APP_OWNER
+[INFO] Parsing Liquibase Properties File C:\Users\balajpc\IdeaProjects\IJ-lnd-ms-edr/src/main/resources/liquibase/liquibase-dev.properties for
+changeLog parameters
+[INFO] Executing on Database: jdbc:oracle:thin:@vstblsd01d.server.rbsgrp.mde:1535:DOGBDWH1
+[INFO] Executing with the 'jdbc' executor
+[INFO] SELECT COUNT(*) FROM LND_APP_OWNER.LND_EDR_DATABASECHANGELOGLOCK
+[INFO] Executing with the 'jdbc' executor
+[INFO] SELECT COUNT(*) FROM LND_APP_OWNER.LND_EDR_DATABASECHANGELOGLOCK
+[INFO] Executing with the 'jdbc' executor
+[INFO] SELECT LOCKED FROM LND_APP_OWNER.LND_EDR_DATABASECHANGELOGLOCK WHERE ID=1 FOR UPDATE
+[INFO] Executing with the 'jdbc' executor
+[INFO] Successfully acquired change log lock
+[INFO] Executing with the 'jdbc' executor
+[INFO] Successfully released change log lock
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 10.023 s
+[INFO] Finished at: 2021-02-25T03:55:09Z
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.liquibase:liquibase-maven-plugin:3.10.0:rollback (default-cli) on project lnd-ms-edr:
+[ERROR] Error setting up or running Liquibase:
+[ERROR] liquibase.exception.SetupException: 2021/013-LND-2021-add-customer-address3-column.xml does not exist
+[ERROR] -> [Help 1]
+[ERROR]
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR]
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException
+000000000000000000000000000000000000000000000000000000000000000000000000000
+
+C:\Users\balajpc\IdeaProjects\IJ-lnd-ms-edr>mvn -Pliquibase-rollback,liquibase-dev -Dliquibase.username=LND_APP_OWNER -Dliquibase.password=49Ga
+9cj1 -Dliquibase.rollbackCount=1
+[INFO] Scanning for projects...
+[WARNING]
+[WARNING] Some problems were encountered while building the effective model for com.rbs.agilemarkets.digital-platform.lending:lnd-ms-edr:jar:0.
+0.5-SNAPSHOT
+[WARNING] 'dependencies.dependency.version' for org.junit.jupiter:junit-jupiter:jar is either LATEST or RELEASE (both of them are being depreca
+ted) @ line 208, column 22
+[WARNING]
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING]
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING]
+[INFO]
+[INFO] ------< com.rbs.agilemarkets.digital-platform.lending:lnd-ms-edr >------
+[INFO] Building lnd-ms-edr 0.0.5-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- liquibase-maven-plugin:3.10.0:rollback (default-cli) @ lnd-ms-edr ---
+[INFO] ------------------------------------------------------------------------
+[INFO] Parsing Liquibase Properties File
+[INFO]   File: C:\Users\balajpc\IdeaProjects\IJ-lnd-ms-edr/src/main/resources/liquibase/liquibase-dev.properties
+[INFO]   'parameter.columnSize' in properties file is not being used by this task.
+[INFO] ------------------------------------------------------------------------
+[INFO]
+[INFO]
+[INFO] Liquibase Community 3.10.0 by Datical
+[INFO] Starting Liquibase at Thu, 25 Feb 2021 03:55:57 GMT (version 3.10.0 #10 built at Thu Jun 11 09:47:49 UTC 2020)
+[INFO] Executing with the 'jdbc' executor
+[INFO] ALTER SESSION SET CURRENT_SCHEMA=LND_APP_OWNER
+[INFO] Parsing Liquibase Properties File C:\Users\balajpc\IdeaProjects\IJ-lnd-ms-edr/src/main/resources/liquibase/liquibase-dev.properties for
+changeLog parameters
+[INFO] Executing on Database: jdbc:oracle:thin:@vstblsd01d.server.rbsgrp.mde:1535:DOGBDWH1
+[INFO] Executing with the 'jdbc' executor
+[INFO] SELECT COUNT(*) FROM LND_APP_OWNER.LND_EDR_DATABASECHANGELOGLOCK
+[INFO] Executing with the 'jdbc' executor
+[INFO] SELECT COUNT(*) FROM LND_APP_OWNER.LND_EDR_DATABASECHANGELOGLOCK
+[INFO] Executing with the 'jdbc' executor
+[INFO] SELECT LOCKED FROM LND_APP_OWNER.LND_EDR_DATABASECHANGELOGLOCK WHERE ID=1 FOR UPDATE
+[INFO] Executing with the 'jdbc' executor
+[INFO] Successfully acquired change log lock
+[INFO] Executing with the 'jdbc' executor
+[INFO] SELECT MD5SUM FROM LND_APP_OWNER.LND_EDR_DATABASECHANGELOG WHERE MD5SUM IS NOT NULL AND ROWNUM=1
+[INFO] Executing with the 'jdbc' executor
+[INFO] SELECT COUNT(*) FROM LND_APP_OWNER.LND_EDR_DATABASECHANGELOG
+[INFO] Reading from LND_APP_OWNER.LND_EDR_DATABASECHANGELOG
+[INFO] Executing with the 'jdbc' executor
+[INFO] SELECT * FROM LND_APP_OWNER.LND_EDR_DATABASECHANGELOG ORDER BY DATEEXECUTED ASC, ORDEREXECUTED ASC
+[INFO] Rolling Back Changeset:generated-baseline.xml::1614224250906-22::balajpc (generated)
+[INFO] Executing with the 'jdbc' executor
+[INFO] ALTER TABLE LND_APP_OWNER.LND_EDR_THEME_TB DROP CONSTRAINT FK_EDRCUT_EDRTHT
+[INFO] Executing with the 'jdbc' executor
+[INFO] DELETE FROM LND_APP_OWNER.LND_EDR_DATABASECHANGELOG WHERE ID = '1614224250906-22' AND AUTHOR = 'balajpc (generated)' AND FILENAME = 'gen
+erated-baseline.xml'
+[INFO] Executing with the 'jdbc' executor
+[INFO] Successfully released change log lock
+[INFO] ------------------------------------------------------------------------
+[INFO]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 11.845 s
+[INFO] Finished at: 2021-02-25T03:56:02Z
+[INFO] ------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+<include file="2021/018-LND-2021-add-newcolumn8.xml" relativeToChangelogFile="true"/>
+<include file="2021/019-LND-2021-add-newcolumn9.xml" relativeToChangelogFile="true"/>
+
+<include file="2021/018-LND-2021-drop-newcolumn8.xml" relativeToChangelogFile="true"/>
+<include file="2021/019-LND-2021-drop-newcolumn9.xml" relativeToChangelogFile="true"/>
+
+
+mvn -Pliquibase-generate,liquibase-dev -Dliquibase.username=LND_APP_OWNER -Dliquibase.password=49Ga9cj1
+mvn -Pliquibase-sync,liquibase-dev -Dliquibase.username=LND_APP_OWNER -Dliquibase.password=49Ga9cj1
+mvn -Pliquibase-updateSQL,liquibase-dev -Dliquibase.username=LND_APP_OWNER -Dliquibase.password=49Ga9cj1
+mvn -Pliquibase-update,liquibase-dev -Dliquibase.username=LND_APP_OWNER -Dliquibase.password=49Ga9cj1
+mvn -Pliquibase-tag,liquibase-dev -Dliquibase.username=LND_APP_OWNER -Dliquibase.password=49Ga9cj1 -Dliquibase.tag=10
+mvn -Pliquibase-rollback,liquibase-dev -Dliquibase.username=LND_APP_OWNER -Dliquibase.password=49Ga9cj1 -Dliquibase.rollbackCount=1
+
+mvn -Pliquibase-update-tagversion,liquibase-dev -Dliquibase.username=LND_APP_OWNER -Dliquibase.password=49Ga9cj1 -Dliquibase.tag=1.9.0
+
+-Pliquibase-update-tagversion,liquibase-dev -Dliquibase.username=LND_APP_OWNER -Dliquibase.password=49Ga9cj1 -Dliquibase.tag=%BuildMaster.build.number%
+
+%dep.AgileMarkets_Lending_Pipelines_LiquibaseTctest_BuildMaster.build.number%
+
+-Pliquibase-rollback,liquibase-dev -Dliquibase.rollbackTag=%BuildMaster.build.number% -Dliquibase.username=%DBusername% -Dliquibase.password=%DBpassword%
+
+-Pliquibase-update-tagversion,liquibase-dev -Dliquibase.username=LND_APP_OWNER -Dliquibase.password=49Ga9cj1 -Dliquibase.tag=%BuildMaster.build.number%
+
+
+mvn liquibase:rollback -Dliquibase.rollbackTag=1.0
